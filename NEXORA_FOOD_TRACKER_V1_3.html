@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080f20">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'none'; img-src 'self' data:; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<title>NEXORA FOOD TRACKER V1.3</title>
+<style>
+
+:root{--bg:#080f20;--panel:#101a2e;--panel2:#14223a;--line:#293b56;--txt:#edf4ff;--muted:#91a1ba;--blue:#3985ff;--cyan:#36d5e8;--green:#25c58a;--red:#ff7887}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:14px 'DM Sans',Arial,sans-serif;min-height:100vh}button,input,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}.auth-wrap{min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(ellipse at 50% 0,#15345a 0,transparent 52%)}.auth-card{width:min(440px,100%);background:#101a2eee;border:1px solid #2b4568;border-radius:18px;padding:28px;box-shadow:0 25px 80px #0008}.brand{display:flex;align-items:center;gap:12px;margin-bottom:27px}.mark{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,#2878ff,#20c9db);display:grid;place-items:center;font:700 18px 'Space Grotesk'}.brand strong{display:block;font:700 16px 'Space Grotesk';letter-spacing:1.4px}.brand small{display:block;color:#8fa1bd;font-size:9px;letter-spacing:2px;margin-top:3px}.eyebrow{font-size:10px;letter-spacing:1.6px;color:#7890b0;font-weight:800}.auth-card h1{font:600 23px 'Space Grotesk';margin:8px 0}.sub{font-size:12px;color:var(--muted);line-height:1.6;margin:0 0 22px}.field{display:flex;flex-direction:column;gap:7px;margin:13px 0}.field span{font-size:11px;color:#bdcbe0;font-weight:600}.field b{color:#ff8793}.field input,.field select{width:100%;height:42px;border:1px solid #2b3e5b;border-radius:8px;background:#0b1628;color:#edf4ff;padding:0 12px;outline:none;font-size:12px}.field input:focus,.field select:focus{border-color:#438fff;box-shadow:0 0 0 3px #3985ff20}.field input::placeholder{color:#657791}.btn{border:1px solid transparent;border-radius:8px;padding:11px 15px;font-size:11px;font-weight:800}.primary{background:linear-gradient(100deg,#287bfa,#238fdc);color:white}.secondary{background:#15243b;border-color:#304563;color:#d1deef}.danger{background:#321e2a;border-color:#69404a;color:#ff9aa5}.block{width:100%}.linkbtn{background:none;border:0;color:#80baff;font-size:11px;font-weight:700;padding:12px 0 0}.notice{border:1px solid #40516b;background:#1b2a40;padding:10px;border-radius:8px;color:#afc0d6;font-size:10px;line-height:1.6;margin-top:15px}.error{color:#ff9ba5;font-size:11px;min-height:16px;margin:7px 0}.app{min-height:100vh;display:grid;grid-template-columns:235px 1fr}.sidebar{background:#0b1426;border-right:1px solid #1d2a40;padding:25px 17px;display:flex;flex-direction:column}.sidebrand{display:flex;align-items:center;gap:10px;margin:0 6px 36px}.sidebrand .mark{width:39px;height:39px}.sidebrand strong{font:700 14px 'Space Grotesk';letter-spacing:1.2px}.sidebrand small{display:block;color:#8fa1bd;font-size:8px;letter-spacing:1.7px}.side-label{font-size:9px;letter-spacing:1.7px;color:#71839f;padding:0 9px 10px;font-weight:800}.nav{width:100%;text-align:left;border:0;background:transparent;color:#a5b4c9;padding:12px;border-radius:8px;margin:2px 0;font-weight:600;font-size:11px}.nav.active,.nav:hover{background:#172844;color:#eef6ff;box-shadow:inset 3px 0 #39a5ff}.nav span{display:inline-block;width:25px;color:#69cce9;font-size:16px}.sidebottom{margin-top:auto;color:#7f91aa;font-size:9px;line-height:1.8}.sidebottom strong{display:block;color:#aabbd1;font-size:11px}.main{padding:28px 38px;max-width:1500px;width:100%;margin:auto;min-width:0}.top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1d2a40;padding-bottom:20px}.top h1{font:600 23px 'Space Grotesk';margin:6px 0 0}.topright{display:flex;align-items:center;gap:9px}.account-chip{border:1px solid #2c405e;background:#14233b;padding:8px 11px;border-radius:8px;color:#c8d8eb;font-size:10px}.account-chip strong{color:#83c7ff}.section{display:none}.section.active{display:block}.intro{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:26px 0 18px}.intro h2{font:600 18px 'Space Grotesk';margin:0 0 5px}.intro p{font-size:11px;color:var(--muted);margin:0}.date{font-size:10px;color:#c4d4e8;background:#12213a;border:1px solid #2a3c58;border-radius:8px;padding:9px 11px;white-space:nowrap}.grid{display:grid;grid-template-columns:minmax(0,1fr) 255px;gap:17px;align-items:start}.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:19px;margin-bottom:15px}.panelhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}.panelhead h3{font:600 13px 'Space Grotesk';margin:0}.step{background:#1c3d68;color:#8acbff;border-radius:6px;padding:6px 8px;font-size:9px;margin-right:8px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.items{display:grid;gap:10px}.item{background:#0c1729;border:1px solid #293b56;border-radius:9px;padding:13px}.itemtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:11px;color:#80bcfa;font-size:9px;letter-spacing:1.2px;font-weight:800}.remove{border:0;background:none;color:#ff8995;font-size:10px}.itemgrid{display:grid;grid-template-columns:1.4fr .7fr .9fr 1fr;gap:10px}.itemgrid .field{margin:0}.itemgrid .field input,.itemgrid .field select{height:38px}.full{grid-column:1/-1}.add{width:100%;border:1px dashed #3a5a83;background:#12233d;color:#9bcaff;padding:10px;border-radius:8px;margin-top:11px;font-size:11px;font-weight:700}.summary{background:linear-gradient(150deg,#152b4c,#101b30);border:1px solid #2b466b;border-radius:12px;padding:18px}.summary label{color:#91a8c8;font-size:9px;letter-spacing:1.4px;font-weight:800}.amount{font:700 27px 'Space Grotesk';margin:15px 0 3px}.muted{color:#91a3bd;font-size:10px}.stat{display:flex;justify-content:space-between;border-top:1px solid #2b3e5b;padding-top:12px;margin-top:12px;color:#a8b8ce;font-size:10px}.stat strong{color:#eff6ff}.actions{display:flex;justify-content:flex-end;gap:9px;margin:15px 0}.note{color:#8294ad;font-size:10px;line-height:1.6}.table{width:100%;border-collapse:collapse;font-size:11px}.table th,.table td{text-align:left;padding:12px 9px;border-bottom:1px solid #293a53}.table th{color:#8499b5;font-size:9px;letter-spacing:1px}.table td{color:#d7e4f4}.table-wrap{overflow:auto}.empty{text-align:center;padding:32px;color:#91a1b8;font-size:11px}.modal{width:min(570px,calc(100% - 24px));background:#101a2d;color:var(--txt);border:1px solid #314563;border-radius:14px;padding:0;box-shadow:0 25px 90px #000a}.modal::backdrop{background:#030814ce;backdrop-filter:blur(4px)}.modalhead{display:flex;justify-content:space-between;align-items:center;padding:18px 21px;border-bottom:1px solid #293a55}.modalhead h2{font:600 18px 'Space Grotesk';margin:5px 0}.close{width:30px;height:30px;border:0;border-radius:7px;background:#1c2a40;color:#d5e2f2;font-size:20px}.modalbody{padding:19px 21px}.modalactions{display:flex;justify-content:flex-end;gap:8px;padding:0 21px 19px}.smallhelp{color:#8598b2;font-size:10px;line-height:1.6}.warning{background:#302a1b;border:1px solid #665431;color:#e8d5a4;border-radius:8px;padding:10px;font-size:10px;line-height:1.6;margin-top:12px}.preview{white-space:pre-wrap;overflow-wrap:anywhere;background:#091426;border:1px solid #293b56;border-radius:8px;padding:14px;max-height:330px;overflow:auto;font:11px/1.7 'DM Sans',sans-serif}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,15px);opacity:0;pointer-events:none;background:#e8f7ff;color:#10243c;padding:10px 15px;border-radius:8px;font-size:11px;font-weight:800;transition:.2s;z-index:20}.toast.show{opacity:1;transform:translate(-50%,0)}.footer{color:#657792;font-size:9px;letter-spacing:1.3px;border-top:1px solid #1d2a40;padding-top:14px;margin-top:30px}
+@media(max-width:950px){.main{padding:23px}.grid{grid-template-columns:1fr}.summary{order:-1}.itemgrid{grid-template-columns:1fr 1fr}.itemgrid .field:first-child{grid-column:1/-1}}
+@media(max-width:680px){.app{grid-template-columns:1fr}.sidebar{padding:10px 12px;display:flex;flex-direction:row;align-items:center;gap:5px}.sidebrand{margin:0 auto 0 0}.sidebrand .mark{width:34px;height:34px}.sidebrand strong{font-size:11px}.sidebrand small{font-size:7px}.side-label,.sidebottom{display:none}.nav{width:auto;margin:0;padding:9px;font-size:0}.nav span{width:auto;font-size:17px}.main{padding:18px 13px}.top h1{font-size:19px}.topright{gap:5px}.account-chip{font-size:9px;padding:7px}.topright .btn{padding:8px;font-size:9px}.intro{align-items:flex-start}.intro h2{font-size:16px}.panel{padding:14px}.two{grid-template-columns:1fr}.actions{flex-direction:column-reverse}.actions .btn{width:100%}.itemgrid{gap:8px}.itemgrid .field input,.itemgrid .field select{font-size:11px;padding:0 8px}.table{min-width:520px}}
+</style>
+</head>
+<body>
+<div id="auth" class="auth-wrap">
+  <div class="auth-card">
+    <div class="brand"><div class="mark">NX</div><div><strong>NEXORA</strong><small>FOOD TRACKER</small></div></div>
+    <div id="login-panel">
+      <div class="eyebrow">ACCOUNT ACCESS</div><h1>Welcome back</h1><p class="sub">Sign in to manage your food damage reports.</p>
+      <label class="field"><span>Username</span><input id="login-user" autocomplete="username" placeholder="Enter username"></label>
+      <label class="field"><span>Password</span><input id="login-pass" type="password" autocomplete="current-password" placeholder="Enter password"></label>
+      <div class="error" id="login-error"></div>
+      <button class="btn primary block" id="login-btn">Login to workspace →</button>
+      <button class="linkbtn" id="show-create">＋ Create a new account</button>
+      <div class="notice">Each account keeps its own restaurant name, manager number, product library and report history on this browser.</div>
+    </div>
+    <div id="create-panel" class="hidden">
+      <div class="eyebrow">NEW WORKSPACE</div><h1>Create account</h1><p class="sub">Create a separate workspace for a restaurant or café.</p>
+      <label class="field"><span>Account name <b>*</b></span><input id="new-label" placeholder="e.g. Main Restaurant"></label>
+      <label class="field"><span>Username <b>*</b></span><input id="new-user" autocomplete="username" placeholder="Choose a username"></label>
+      <label class="field"><span>Password <b>*</b></span><input id="new-pass" type="password" autocomplete="new-password" placeholder="At least 8 characters"></label>
+      <label class="field"><span>Confirm password <b>*</b></span><input id="new-pass2" type="password" autocomplete="new-password" placeholder="Re-enter password"></label>
+      <label class="field"><span>Restaurant / café name <b>*</b></span><input id="new-restaurant" placeholder="Restaurant name"></label>
+      <label class="field"><span>Manager WhatsApp number <b>*</b></span><input id="new-phone" inputmode="numeric" placeholder="8801XXXXXXXXX"></label>
+      <div class="error" id="create-error"></div>
+      <button class="btn primary block" id="create-btn">Create account</button>
+      <button class="linkbtn" id="back-login">← Back to login</button>
+      <div class="warning">Demo account access only: this app has no server. Password checks happen in this browser and are not suitable for protecting sensitive business data.</div>
+    </div>
+  </div>
+</div>
+
+<div id="workspace" class="app hidden">
+  <aside class="sidebar">
+    <div class="sidebrand"><div class="mark">NX</div><div><strong>NEXORA</strong><small>FOOD TRACKER</small></div></div>
+    <div class="side-label">WORKSPACE</div>
+    <button class="nav active" data-view="report"><span>＋</span>New damage report</button>
+    <button class="nav" data-view="products"><span>▦</span>Food product library</button>
+    <button class="nav" data-view="history"><span>▤</span>Report history</button>
+    <button class="nav" data-view="settings"><span>⚙</span>Account settings</button>
+    <div class="sidebottom"><strong>Building What’s Next.</strong>NEXORA TECHNOLOGIES · V1.1<br>Local browser storage</div>
+  </aside>
+  <main class="main">
+    <header class="top">
+      <div><div class="eyebrow">RESTAURANT OPERATIONS / DAMAGE CONTROL</div><h1 id="page-title">New damage report</h1></div>
+      <div class="topright"><div class="account-chip">Account: <strong id="active-account">—</strong></div><button class="btn secondary" id="logout">Logout</button></div>
+    </header>
+
+    <section id="report-section" class="section active">
+      <div class="intro"><div><h2>Record damaged products</h2><p>Select items from your saved product library.</p></div><div class="date" id="today"></div></div>
+      <div class="grid">
+        <div>
+          <div class="panel">
+            <div class="panelhead"><h3><span class="step">01</span>Report information</h3></div>
+            <div class="two">
+              <label class="field"><span>Report date <b>*</b></span><input id="report-date" type="date"></label>
+              <label class="field"><span>Reported by <b>*</b></span><input id="reported-by" placeholder="Staff name" maxlength="60"></label>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panelhead"><h3><span class="step">02</span>Damaged product details</h3><span class="eyebrow" id="item-count">0 ITEMS</span></div>
+            <div id="report-items" class="items"></div>
+            <button class="add" id="add-report-item">＋ Add product from library</button>
+            <p class="smallhelp" id="library-hint">Products are managed in Food Product Library.</p>
+          </div>
+          <div class="actions"><button class="btn secondary" id="clear-report">Clear form</button><button class="btn primary" id="review-report">Review & generate WhatsApp report →</button></div>
+          <p class="smallhelp">Reports are saved only in this browser profile. WhatsApp opens with a prepared message; press Send in WhatsApp to deliver it.</p>
+        </div>
+        <aside class="summary"><label>REPORT SUMMARY</label><div class="amount" id="sum-count">0</div><div class="muted">Damaged product entries</div><div class="stat"><span>Total quantity</span><strong id="sum-qty">0</strong></div><div class="stat"><span>Recipient</span><strong id="sum-recipient">Not set</strong></div><div class="stat"><span>Data retention</span><strong>30 days</strong></div></aside>
+      </div>
+    </section>
+
+    <section id="products-section" class="section">
+      <div class="intro"><div><h2>Food product library</h2><p>Add your regular food items once. Select them later in damage reports.</p></div></div>
+      <div class="panel">
+        <div class="panelhead"><h3>＋ Add a food product</h3></div>
+        <div class="two">
+          <label class="field"><span>Product name <b>*</b></span><input id="product-name" placeholder="e.g. Chicken breast"></label>
+          <label class="field"><span>Category</span><input id="product-category" placeholder="e.g. Meat, Dairy, Bakery"></label>
+          <label class="field"><span>Default unit</span><select id="product-unit"><option value="pcs">Pieces (pcs)</option><option value="kg">Kilogram (kg)</option><option value="gm">Gram (gm)</option><option value="L">Litre (L)</option><option value="ml">Millilitre (ml)</option><option value="pack">Pack</option><option value="box">Box</option><option value="portion">Portion</option></select></label>
+        </div>
+        <div class="actions"><button class="btn primary" id="save-product">Save product to library</button></div>
+      </div>
+      <div class="panel"><div class="panelhead"><h3>Saved food products</h3><span class="eyebrow" id="product-count">0 PRODUCTS</span></div><div class="table-wrap" id="product-table"></div></div>
+    </section>
+
+    <section id="history-section" class="section">
+      <div class="intro"><div><h2>Report history</h2><p>Reports are automatically deleted 30 days after creation.</p></div><button class="btn secondary" id="export-history">↓ Export JSON</button></div>
+      <div class="panel" id="history-table"></div>
+    </section>
+
+    <section id="settings-section" class="section">
+      <div class="intro"><div><h2>Account settings</h2><p>These settings belong only to the currently logged-in account.</p></div></div>
+      <div class="panel">
+        <div class="panelhead"><h3>Restaurant & WhatsApp settings</h3></div>
+        <label class="field"><span>Restaurant / café name <b>*</b></span><input id="setting-restaurant"></label>
+        <label class="field"><span>Manager WhatsApp number <b>*</b></span><input id="setting-phone" inputmode="numeric" placeholder="8801XXXXXXXXX"></label>
+        <p class="smallhelp">Use country code and digits only. Example: 8801XXXXXXXXX.</p>
+        <div class="actions"><button class="btn primary" id="save-settings">Save account settings</button></div>
+      </div>
+      <div class="panel"><div class="panelhead"><h3>Account information</h3></div><p class="smallhelp" id="account-info"></p><button class="btn secondary" id="switch-account">Logout / switch account</button></div>
+      <div class="warning">Security note: this is a free, browser-only app. Passwords are salted and hashed, but restaurant data is not encrypted and there is no server-side authentication, cloud backup or cross-device sync. Anyone with access to this browser profile or its developer tools may access or alter local data. Use a device passcode and do not store highly confidential information here.</div>
+    </section>
+    <footer class="footer">NEXORA FOOD TRACKER V1.3 · BUILDING WHAT’S NEXT.</footer>
+  </main>
+</div>
+
+<dialog id="preview-modal" class="modal">
+  <div class="modalhead"><div><div class="eyebrow">FINAL CHECK</div><h2>WhatsApp report preview</h2></div><button class="close" data-close="preview-modal">×</button></div>
+  <div class="modalbody"><p class="smallhelp" id="preview-to"></p><pre class="preview" id="preview-text"></pre></div>
+  <div class="modalactions"><button class="btn secondary" id="copy-message">Copy message</button><button class="btn primary" id="open-whatsapp">Open WhatsApp ↗</button></div>
+</dialog>
+<dialog id="edit-product-modal" class="modal">
+  <div class="modalhead"><div><div class="eyebrow">PRODUCT LIBRARY</div><h2>Edit product</h2></div><button class="close" data-close="edit-product-modal">×</button></div>
+  <div class="modalbody"><input type="hidden" id="edit-product-id"><label class="field"><span>Product name</span><input id="edit-product-name"></label><label class="field"><span>Category</span><input id="edit-product-category"></label><label class="field"><span>Default unit</span><select id="edit-product-unit"><option value="pcs">Pieces (pcs)</option><option value="kg">Kilogram (kg)</option><option value="gm">Gram (gm)</option><option value="L">Litre (L)</option><option value="ml">Millilitre (ml)</option><option value="pack">Pack</option><option value="box">Box</option><option value="portion">Portion</option></select></label></div>
+  <div class="modalactions"><button class="btn secondary" data-close="edit-product-modal">Cancel</button><button class="btn primary" id="update-product">Save changes</button></div>
+</dialog>
+<div class="toast" id="toast"></div>
+
+<script>
+(() => {
+"use strict";
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const DBKEY = "nexora.foodtracker.accounts.v11", SESSIONKEY = "nexora.foodtracker.remembered-account.v13";
+const RETENTION_MS = 30 * 24 * 60 * 60 * 1000;
+let accounts = load(DBKEY, []), activeId = null, draft = [], toastTimer;
+function pruneOldReports(){const cutoff=Date.now()-RETENTION_MS;let changed=false;accounts.forEach(a=>{const before=(a.reports||[]).length;a.reports=(a.reports||[]).filter(r=>{const t=Date.parse(r.createdAt||r.date||0);return Number.isFinite(t)&&t>=cutoff});if(a.reports.length!==before)changed=true;});if(changed)persist();}
+function load(k, fallback){try{return JSON.parse(localStorage.getItem(k)) ?? fallback}catch{return fallback}}
+function persist(){try{localStorage.setItem(DBKEY,JSON.stringify(accounts));return true}catch(e){console.error("NEXORA storage error",e);toast("Could not save data. Browser storage may be full or disabled. Export your data and free storage.");return false}}
+function active(){return accounts.find(a=>a.id===activeId)}
+function uid(){return (crypto.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`)}
+function money(n){return "৳"+Number(n||0).toLocaleString("en-BD",{minimumFractionDigits:2,maximumFractionDigits:2})}
+function toast(s){let e=$("#toast");e.textContent=s;e.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>e.classList.remove("show"),2500)}
+async function legacyDigest(s){if(!crypto.subtle) return "local-"+btoa(unescape(encodeURIComponent(s)));const bytes=new TextEncoder().encode(s);const hash=await crypto.subtle.digest("SHA-256",bytes);return [...new Uint8Array(hash)].map(x=>x.toString(16).padStart(2,"0")).join("")}
+async function hashPassword(password,saltHex){if(!crypto?.subtle)throw new Error("Secure password hashing requires HTTPS. Open the GitHub Pages HTTPS link.");const salt=saltHex?Uint8Array.from(saltHex.match(/.{2}/g),b=>parseInt(b,16)):crypto.getRandomValues(new Uint8Array(16));const key=await crypto.subtle.importKey("raw",new TextEncoder().encode(password),"PBKDF2",false,["deriveBits"]);const bits=await crypto.subtle.deriveBits({name:"PBKDF2",salt,iterations:310000,hash:"SHA-256"},key,256);return{salt:[...salt].map(b=>b.toString(16).padStart(2,"0")).join(""),hash:[...new Uint8Array(bits)].map(b=>b.toString(16).padStart(2,"0")).join("")}}
+async function verifyPassword(account,password){if(account.passwordSalt){const result=await hashPassword(password,account.passwordSalt);return result.hash===account.passwordHash}return await legacyDigest(password)===account.passwordHash}
+function showAuth(create=false){$("#auth").classList.remove("hidden");$("#workspace").classList.add("hidden");$("#login-panel").classList.toggle("hidden",create);$("#create-panel").classList.toggle("hidden",!create);$("#login-error").textContent="";$("#create-error").textContent=""}
+function showApp(){if(!active())return showAuth();$("#auth").classList.add("hidden");$("#workspace").classList.remove("hidden");$("#active-account").textContent=active().label;$("#sum-recipient").textContent=active().phone ? "+"+active().phone : "Not set";$("#setting-restaurant").value=active().restaurant;$("#setting-phone").value=active().phone;$("#account-info").textContent=`Account: ${active().label} · Username: ${active().username} · Products: ${active().products.length} · Saved reports: ${active().reports.length}`;renderProducts();renderHistory();resetReport();showView("report")}
+function showView(name){$$(".section").forEach(x=>x.classList.toggle("active",x.id===name+"-section"));$$(".nav").forEach(x=>x.classList.toggle("active",x.dataset.view===name));$("#page-title").textContent=({report:"New damage report",products:"Food product library",history:"Report history",settings:"Account settings"})[name]}
+function escapeHTML(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function showModal(id){$("#"+id).showModal()}
+function closeModal(id){$("#"+id).close()}
+function today(){let d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`}
+function createAccount(){
+ const label=$("#new-label").value.trim(),username=$("#new-user").value.trim().toLowerCase(),pass=$("#new-pass").value,pass2=$("#new-pass2").value,restaurant=$("#new-restaurant").value.trim(),phone=$("#new-phone").value.replace(/\D/g,"");
+ const err=$("#create-error");err.textContent="";
+ if(!label||!username||!pass||!restaurant||!phone)return err.textContent="Please complete all required fields.";
+ if(!/^[a-z0-9._-]{3,30}$/.test(username))return err.textContent="Username: use 3–30 letters, numbers, dots, _ or -.";
+ if(pass.length<8)return err.textContent="Use a password with at least 8 characters.";
+ if(pass!==pass2)return err.textContent="Passwords do not match.";
+ if(!/^\d{10,15}$/.test(phone))return err.textContent="Enter manager WhatsApp number with country code.";
+ if(accounts.some(a=>a.username===username))return err.textContent="This username already exists on this browser.";
+ hashPassword(pass).then(({salt,passwordHash})=>{
+  const a={id:uid(),label,username,passwordHash,passwordSalt:salt,restaurant,phone,products:[],reports:[],createdAt:new Date().toISOString()};
+  accounts.push(a);if(!persist()){accounts.pop();return}activeId=a.id;localStorage.setItem(SESSIONKEY,activeId);showApp();toast("Account created. You are now signed in.");
+ }).catch(e=>{err.textContent=e.message||"Could not create account. Please use the HTTPS website."});
+}
+async function login(){
+ const u=$("#login-user").value.trim().toLowerCase(),p=$("#login-pass").value;
+ const a=accounts.find(x=>x.username===u),err=$("#login-error");err.textContent="";
+ if(!a)return err.textContent="Account not found. Create an account first.";
+ let valid=false;try{valid=await verifyPassword(a,p)}catch(e){return err.textContent=e.message||"Password verification failed."}
+ if(!valid)return err.textContent="Incorrect password.";
+ // Upgrade accounts created by the earlier SHA-256-only version after a successful login.
+ if(!a.passwordSalt){try{const upgraded=await hashPassword(p);a.passwordSalt=upgraded.salt;a.passwordHash=upgraded.hash;persist()}catch(e){console.warn("Password hash upgrade skipped",e)}}
+ activeId=a.id;localStorage.setItem(SESSIONKEY,activeId);showApp();
+}
+function logout(){activeId=null;localStorage.removeItem(SESSIONKEY);$("#login-pass").value="";showAuth(false)}
+function addProduct(){
+ const name=$("#product-name").value.trim(),category=$("#product-category").value.trim(),unit=$("#product-unit").value;
+ if(!name)return toast("Enter a product name.");
+ if(active().products.some(p=>p.name.toLowerCase()===name.toLowerCase()))return toast("This product already exists.");
+ active().products.push({id:uid(),name,category,unit});persist();$("#product-name").value="";$("#product-category").value="";renderProducts();toast("Product added to this account's library.");
+}
+function renderProducts(){
+ const a=active();if(!a)return;
+ $("#product-count").textContent=`${a.products.length} PRODUCTS`;
+ $("#library-hint").textContent=a.products.length?"Choose products from your saved library. Add new products in Food Product Library.":"Your product library is empty. Add products in Food Product Library first.";
+ $("#product-table").innerHTML=a.products.length?`<table class="table"><thead><tr><th>PRODUCT</th><th>CATEGORY</th><th>DEFAULT UNIT</th><th>ACTIONS</th></tr></thead><tbody>${a.products.map(p=>`<tr><td>${escapeHTML(p.name)}</td><td>${escapeHTML(p.category||"—")}</td><td>${escapeHTML(p.unit)}</td><td><button class="btn secondary" data-edit="${p.id}">Edit</button> <button class="btn danger" data-delete="${p.id}">Delete</button></td></tr>`).join("")}</tbody></table>`:'<div class="empty">No products yet. Add your regular food items above.</div>';
+}
+function editProduct(id){const p=active().products.find(x=>x.id===id);if(!p)return;$("#edit-product-id").value=id;$("#edit-product-name").value=p.name;$("#edit-product-category").value=p.category;$("#edit-product-unit").value=p.unit;showModal("edit-product-modal")}
+function updateProduct(){const id=$("#edit-product-id").value,p=active().products.find(x=>x.id===id),name=$("#edit-product-name").value.trim();if(!name)return toast("Product name is required.");if(active().products.some(x=>x.id!==id&&x.name.toLowerCase()===name.toLowerCase()))return toast("Another product has this name.");p.name=name;p.category=$("#edit-product-category").value.trim();p.unit=$("#edit-product-unit").value;persist();renderProducts();renderReportItems();closeModal("edit-product-modal");toast("Product updated.")}
+function deleteProduct(id){const p=active().products.find(x=>x.id===id);if(!p)return;if(!confirm(`Delete ${p.name} from this account's product library? Past reports will not be changed.`))return;active().products=active().products.filter(x=>x.id!==id);persist();renderProducts();renderReportItems();toast("Product removed.")}
+function addReportItem(){
+ const a=active();if(!a.products.length){toast("Add food products to the library first.");showView("products");return}
+ draft.push({id:uid(),productId:a.products[0].id,quantity:"",reason:"",note:""});renderReportItems();
+}
+function renderReportItems(){
+ const a=active();if(!a)return;const host=$("#report-items");
+ if(!draft.length){host.innerHTML='<div class="empty">No products selected. Click “Add product from library”.</div>';updateSummary();return}
+ host.innerHTML=draft.map((it,i)=>{const p=a.products.find(x=>x.id===it.productId);return `<article class="item" data-row="${it.id}"><div class="itemtop"><span>ITEM ${String(i+1).padStart(2,"0")}</span><button class="remove" data-remove="${it.id}">Remove ×</button></div><div class="itemgrid"><label class="field full"><span>Food product <b>*</b></span><select data-key="productId">${a.products.map(x=>`<option value="${x.id}" ${x.id===it.productId?"selected":""}>${escapeHTML(x.name)}${x.category?" · "+escapeHTML(x.category):""}</option>`).join("")}</select></label><label class="field"><span>Quantity <b>*</b></span><input data-key="quantity" type="number" min="0.01" step="0.01" value="${escapeHTML(it.quantity)}" placeholder="0"></label><label class="field"><span>Unit</span><select data-key="unit">${["pcs","kg","gm","L","ml","pack","box","portion"].map(u=>`<option ${((it.unit||p?.unit||"pcs")===u)?"selected":""} value="${u}">${u}</option>`).join("")}</select></label><label class="field"><span>Damage reason <b>*</b></span><select data-key="reason"><option value="">Select reason</option>${["Expired","Spoiled","Burnt / overcooked","Preparation error","Accidental damage","Contaminated","Storage issue","Other"].map(r=>`<option ${it.reason===r?"selected":""}>${r}</option>`).join("")}</select></label><label class="field full"><span>Note <small class="smallhelp">Optional</small></span><input data-key="note" value="${escapeHTML(it.note)}" maxlength="160" placeholder="Short explanation (optional)"></label></div></article>`}).join("");
+ host.querySelectorAll("[data-key]").forEach(el=>el.addEventListener("input",()=>{const row=draft.find(x=>x.id===el.closest("[data-row]").dataset.row);row[el.dataset.key]=el.value;if(el.dataset.key==="productId"){const prod=a.products.find(p=>p.id===el.value);row.unit=prod?.unit||"pcs";renderReportItems()}updateSummary()}));
+ host.querySelectorAll("[data-remove]").forEach(btn=>btn.addEventListener("click",()=>{draft=draft.filter(x=>x.id!==btn.dataset.remove);renderReportItems()}));
+ updateSummary();
+}
+function updateSummary(){const a=active();if(!a)return;const qty=draft.reduce((s,x)=>s+(Number(x.quantity)||0),0);$("#sum-count").textContent=draft.length;$("#sum-qty").textContent=qty.toLocaleString("en-BD",{maximumFractionDigits:2});$("#sum-recipient").textContent=a.phone?"+"+a.phone:"Not set";$("#item-count").textContent=`${draft.length} ITEMS`}
+function resetReport(){$("#report-date").value=today();$("#reported-by").value="";draft=[];if(active()?.products.length)addReportItem();else renderReportItems();$("#today").textContent=new Date().toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"})}
+function validateReport(){const a=active();if(!$("#report-date").value)return"Select a report date.";if(!$("#reported-by").value.trim())return"Enter the staff member's name.";if(!a.restaurant)return"Set restaurant name in Account Settings.";if(!/^\d{10,15}$/.test(a.phone))return"Set a valid manager WhatsApp number in Account Settings.";if(!draft.length)return"Add at least one product.";for(let i=0;i<draft.length;i++){const x=draft[i],p=a.products.find(y=>y.id===x.productId);if(!p)return"Choose a valid product.";if(!(Number(x.quantity)>0))return`Enter quantity for ${p.name}.`;if(!x.reason)return`Select damage reason for ${p.name}.`}return""}
+function makeReport(){const a=active(),items=draft.map(x=>{const p=a.products.find(y=>y.id===x.productId);return{name:p.name,category:p.category,quantity:Number(x.quantity),unit:x.unit||p.unit,reason:x.reason,note:x.note}});return{id:uid(),date:$("#report-date").value,reportedBy:$("#reported-by").value.trim(),restaurant:a.restaurant,items,createdAt:new Date().toISOString()}}
+function messageFor(r){let lines=[`*${r.restaurant.toUpperCase()}*`,`*DAILY DAMAGE PRODUCTS REPORT*`,"",`Date: ${r.date}`,`Reported by: ${r.reportedBy}`,"","*DAMAGED PRODUCTS*"];r.items.forEach((x,i)=>{lines.push(`${i+1}. *${x.name}*`,`   Quantity: ${x.quantity} ${x.unit}`,`   Reason: ${x.reason}`);if(x.note)lines.push(`   Note: ${x.note}`);lines.push("")});lines.push("_Generated by NEXORA FOOD TRACKER_");return lines.join("\n")}
+function review(){const e=validateReport();if(e)return toast(e);const r=makeReport();active().reports.unshift(r);active().reports=active().reports.slice(0,150);persist();$("#preview-to").textContent=`To Manager: +${active().phone}`;$("#preview-text").textContent=messageFor(r);draft=[];renderReportItems();renderHistory();showModal("preview-modal")}
+function openWhatsApp(){const a=active(),text=$("#preview-text").textContent;window.open(`https://wa.me/${a.phone}?text=${encodeURIComponent(text)}`,"_blank","noopener,noreferrer")}
+function renderHistory(){const a=active();if(!a)return;$("#history-table").innerHTML=a.reports.length?`<div class="table-wrap"><table class="table"><thead><tr><th>DATE</th><th>REPORTED BY</th><th>ITEMS</th><th>ACTION</th></tr></thead><tbody>${a.reports.map(r=>`<tr><td>${escapeHTML(r.date)}</td><td>${escapeHTML(r.reportedBy)}</td><td>${r.items.length}</td><td><button class="btn secondary" data-report="${r.id}">View / WhatsApp</button></td></tr>`).join("")}</tbody></table></div>`:'<div class="empty">No reports saved for this account yet.</div>'}
+function saveSettings(){const restaurant=$("#setting-restaurant").value.trim(),phone=$("#setting-phone").value.replace(/\D/g,"");if(!restaurant)return toast("Enter restaurant name.");if(!/^\d{10,15}$/.test(phone))return toast("Enter manager number with country code.");active().restaurant=restaurant;active().phone=phone;persist();$("#sum-recipient").textContent="+"+phone;$("#account-info").textContent=`Account: ${active().label} · Username: ${active().username} · Products: ${active().products.length} · Saved reports: ${active().reports.length}`;toast("This account's settings saved.");}
+function exportReports(){const a=active();if(!a.reports.length)return toast("No reports to export.");const blob=new Blob([JSON.stringify(a.reports,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),el=document.createElement("a");el.href=url;el.download=`nexora-${a.username}-damage-reports.json`;el.click();URL.revokeObjectURL(url)}
+$("#show-create").onclick=()=>showAuth(true);$("#back-login").onclick=()=>showAuth(false);$("#create-btn").onclick=createAccount;$("#login-btn").onclick=login;$("#login-pass").addEventListener("keydown",e=>{if(e.key==="Enter")login()});$("#logout").onclick=logout;$("#switch-account").onclick=logout;
+$$(".nav").forEach(b=>b.onclick=()=>showView(b.dataset.view));
+$("#save-product").onclick=addProduct;$("#product-table").addEventListener("click",e=>{const ed=e.target.closest("[data-edit]"),del=e.target.closest("[data-delete]");if(ed)editProduct(ed.dataset.edit);if(del)deleteProduct(del.dataset.delete)});
+$("#update-product").onclick=updateProduct;$$("[data-close]").forEach(b=>b.onclick=()=>closeModal(b.dataset.close));
+$("#add-report-item").onclick=addReportItem;$("#clear-report").onclick=resetReport;$("#review-report").onclick=review;$("#save-settings").onclick=saveSettings;$("#open-whatsapp").onclick=openWhatsApp;$("#copy-message").onclick=async()=>{try{await navigator.clipboard.writeText($("#preview-text").textContent);toast("Message copied.")}catch{toast("Copy not available in this browser.")}};$("#export-history").onclick=exportReports;
+$("#history-table").addEventListener("click",e=>{const b=e.target.closest("[data-report]");if(!b)return;const r=active().reports.find(x=>x.id===b.dataset.report);if(!r)return;$("#preview-to").textContent=`To Manager: +${active().phone}`;$("#preview-text").textContent=messageFor(r);showModal("preview-modal")});
+pruneOldReports();
+const remembered=localStorage.getItem(SESSIONKEY);if(remembered&&accounts.some(a=>a.id===remembered)){activeId=remembered;showApp()}else showAuth(false);
+})();
+</script>
+</body>
+</html>
